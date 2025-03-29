@@ -1,17 +1,14 @@
 "use client";
-// import { ProductCard } from "@/components/sharedUi/ProductCard";
 import { Button } from "@/components/ui/button";
 import { MoveRight, MoveLeft } from "lucide-react";
 import React, { useRef } from "react";
 import Slider from "react-slick";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ProductDetailModal } from "@/components/sharedUi/ProductDetailModal";
 
 export const OurTopProducts = () => {
   const sliderRef = useRef<Slider | null>(null);
-  // const [activeSlide, setActiveSlide] = useState(0) // Track the active slide index
 
   const settings = {
     infinite: true,
@@ -21,7 +18,22 @@ export const OurTopProducts = () => {
     speed: 500,
     slidesToShow: 4, // Show 4 slides at once
     slidesToScroll: 2,
-    // afterChange: (current: number) => setActiveSlide(current), // Update active slide index on change
+    responsive: [
+      {
+        breakpoint: 1024, // Medium screens (tablets)
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 768, // Smaller screens (mobile devices)
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const next = () => {
@@ -37,9 +49,12 @@ export const OurTopProducts = () => {
   };
 
   return (
-    <section className="relative w-full p-8 overflow-hidden">
-      <h2>Our Top Products</h2>
-      <div className="flex flex-row w-full gap-4">
+    <section className="relative w-full p-8 overflow-hidden bg-gray-50">
+      <h2 className="mb-8 text-3xl font-[PoorRichard]  text-center text-primary">
+        Our Top Products
+      </h2>
+
+      <div className="relative">
         <Slider ref={sliderRef} {...settings} className="w-full">
           {Array.from({ length: 6 }).map((_, i) => (
             <div key={i} className="w-full">
@@ -48,33 +63,29 @@ export const OurTopProducts = () => {
             </div>
           ))}
         </Slider>
-      </div>
 
-      {/* Navigation Buttons */}
-      <div className="absolute right-0 flex justify-between min-w-full px-3 text-24 top-1/2 padding-4 ">
-        <Button
-          variant="secondary"
-          size={"icon"}
-          onClick={previous}
-          className="rounded-full shadow-xl cursor-pointer size-18 hover:scale-125 bg-[#F3FFE5]"
-        >
-          <MoveLeft
-            size={40}
-            className="self-center group-hover:scale-125 ease-soft-spring ce"
-          />
-        </Button>
+        {/* Navigation Buttons */}
+        <div className="absolute left-0 flex justify-between w-full px-4 text-3xl inset-y-1/2">
+          <Button
+            variant="secondary"
+            size={"icon"}
+            onClick={previous}
+            className="rounded-full shadow-xl cursor-pointer bg-[#F3FFE5] hover:scale-125 transition-all"
+            aria-label="Previous slide"
+          >
+            <MoveLeft size={40} className="self-center" />
+          </Button>
 
-        <Button
-          variant="secondary"
-          size={"icon"}
-          onClick={next}
-          className="rounded-full cursor-pointer shadow-xl size-18 hover:scale-125 border bg-[#F3FFE5]"
-        >
-          <MoveRight
-            size={"24px"}
-            className="group-hover:scale-125 ease-soft-spring "
-          />
-        </Button>
+          <Button
+            variant="secondary"
+            size={"icon"}
+            onClick={next}
+            className="rounded-full shadow-xl cursor-pointer bg-[#F3FFE5] hover:scale-125 transition-all"
+            aria-label="Next slide"
+          >
+            <MoveRight size={40} className="self-center" />
+          </Button>
+        </div>
       </div>
     </section>
   );

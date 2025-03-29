@@ -1,9 +1,14 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 
-export const RippleEffect: React.FC<{ className?: string; children: React.ReactNode }> = ({ className, children }) => {
-  const [ripples, setRipples] = useState<{ x: number; y: number; size: number; id: number }[]>([]);
+export const RippleEffect: React.FC<{
+  className?: string;
+  children: React.ReactNode;
+}> = ({ className, children }) => {
+  const [ripples, setRipples] = useState<
+    { x: number; y: number; size: number; id: number }[]
+  >([]);
 
   const addRipple = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -20,7 +25,10 @@ export const RippleEffect: React.FC<{ className?: string; children: React.ReactN
   };
 
   return (
-    <div className={cn("relative overflow-hidden", className)} onMouseDown={addRipple}>
+    <div
+      className={cn("relative overflow-hidden h-full w-full", className)}
+      onMouseDown={addRipple}
+    >
       {children}
       <div className="absolute inset-0 pointer-events-none">
         {ripples.map((ripple) => (
@@ -32,8 +40,8 @@ export const RippleEffect: React.FC<{ className?: string; children: React.ReactN
               top: ripple.y,
               width: ripple.size,
               height: ripple.size,
-              mixBlendMode:'multiply',
-              border:'#285E27 solid 2px',
+              mixBlendMode: "multiply",
+              border: "#285E27 solid 2px",
               backgroundColor: "hsl(85, 100%, 80%)",
               transform: "scale(0)",
               opacity: 1,

@@ -1,12 +1,38 @@
+"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { IntroSection } from "@/components/sharedUi/IntroSection";
 import SecondHero from "@/components/sharedUi/SecondHero";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FilterBar } from "./comps/FilterBar";
 import { ProductDetailModal } from "@/components/sharedUi/ProductDetailModal";
+import { getSheetData, SheetData, transformSheetData } from "@/lib/getSheet";
 
 const ProductDetail = () => {
+  const [tableData, setTableData] = useState<Record<string, any>[]>([]);
+
+  useEffect(() => {
+    getSheetData({
+      sheetID: "1FnNN8wEO3jl02B7FrEYOfr5FdSt6csIi_ortuBj9o0Q",
+      sheetName: "products",
+      query: "SELECT *",
+      callback: sheetDataHandler,
+    });
+  }, []);
+
+  const sheetDataHandler = (data: SheetData) => {
+    if (!data || !Array.isArray(data)) {
+      console.error("Invalid sheet data received:", data);
+      return;
+    }
+    const formattedData = transformSheetData(data);
+    console.log("Formatted Sheet Data:", formattedData);
+    setTableData(formattedData);
+  };
+
+  console.log("first: ", tableData);
+
   return (
-    <div className="w-screen bg-blue">
+    <div className="w-screen bg-blue ">
       <SecondHero title={"Products (Global New Herbal Life) "} image={""} />
       <IntroSection
         title={"Global New Herbal Life (GNHL)"}
@@ -19,9 +45,13 @@ In addition to our herbal remedies, GNHL also offers a wide selection of cosmeti
 At GNHL, we are committed to delivering effective, natural solutions that enhance your well-being and beauty.`}
       />
 
-      <div className="flex gap-4 p-2 m-8 border-2">
+      <div className="relative flex gap-4 p-2 m-8 border-2">
         {/* filter ad control */}
-        <FilterBar />
+        <div className="border ">
+          <div className="sticky top-4 ">
+            <FilterBar />
+          </div>
+        </div>
         {/* Product list */}
         <div className="flex flex-wrap gap-2">
           {Array.from({ length: 5 }).map((a, i) => (

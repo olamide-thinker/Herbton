@@ -2,6 +2,7 @@
 
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { CopyIcon, Globe } from "lucide-react";
 
 const CopyText = ({ text }: { text: string }) => {
   const handleCopy = async () => {
@@ -31,10 +32,16 @@ const CopyText = ({ text }: { text: string }) => {
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 p-2 border border-gray-200 rounded-lg w-fit">
+      <Globe className="w-4 h-4 text-primary" />
       <span className="text-gray-700">{text}</span>
-      <Button variant="outline" size="sm" onClick={handleCopy}>
-        Copy
+      <Button
+        className="w-fit"
+        variant="outline"
+        size="sm"
+        onClick={handleCopy}
+      >
+        <CopyIcon className="w-4 h-4" />
       </Button>
     </div>
   );

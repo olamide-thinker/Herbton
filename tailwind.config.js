@@ -21,6 +21,22 @@ const config = {
         lg: "5px 5px 10px rgba(0, 0, 0, 0.2)",
         xl: "10px 10px 15px rgba(0, 0, 0, 0.3)",
       },
+
+      keyframes: {
+        fadeInUp: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(10px)", // start from below
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)", // final position
+          },
+        },
+      },
+      animation: {
+        fadeInUp: "fadeInUp 1s ease-out forwards", // use the keyframe for animation
+      },
     },
   },
   darkMode: "class",

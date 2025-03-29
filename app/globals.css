@@ -180,3 +180,18 @@ scrollbar-button {
     font-family: 'PoorRichard', serif;
   }
 } */
+@keyframes text-focus-in {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+/* Tailwind CSS Utility to apply the animation */
+.animate-text-focus-in {
+  animation: text-focus-in 2s ease-out;
+}

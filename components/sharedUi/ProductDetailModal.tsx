@@ -40,7 +40,7 @@ export const ProductDetailModal = ({
         </DialogTitle>
         <div className="flex flex-col max-w-[85vw] items-center gap-8 bg-blue ">
           <ProductDetailHero />
-          <div className="flex flex-col items-center p-4 space-y-4 text-center">
+          <div className="flex flex-col items-center p-4 space-y-4 text-center w-[700px]">
             <h1 className="font-['PoorRichard'] text-4xl">Product Name</h1>
             <p>
               Heal and empower individuals through the power of natural herbs
@@ -57,7 +57,7 @@ export const ProductDetailModal = ({
             </div>
           </div>
 
-          <div className="flex gap-2 items-center p-4 aspect-auto w-[600px]  bg-secondary/75 mt-8">
+          <div className="flex gap-4 items-center p-4 aspect-auto w-[600px]  bg-secondary/75 mt-8">
             <Image
               src={"/assets/products/Scientific_paperImg.png"}
               alt=""
@@ -69,13 +69,13 @@ export const ProductDetailModal = ({
               <h3 className=" font-['PoorRichard'] text-xl">
                 Scientific Paper
               </h3>
-              <p className="text-xs">
+              <p className="text-sm">
                 If you are inclined with deep science stuff, you might find this
                 paper interesting. you will see how each molecular structures
                 shows indications and reasons this indications play healing
                 roles in the body.
               </p>
-              <div>
+              <div className="flex ">
                 <Button variant={"link"}>Download ( 24mb )</Button>
                 <Button variant={"link"}> Read on Medium</Button>
               </div>
