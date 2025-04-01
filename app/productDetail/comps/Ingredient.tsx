@@ -39,7 +39,7 @@ export const Ingredient = () => {
       <Slider ref={sliderRef} {...settings} className="w-full">
         {Array.from({ length: 5 }).map((_, i) => (
           <div key={i} className="flex justify-center w-full p-4 m-8 group">
-            <div className="p-4 space-y-4 border-2 rounded-lg group-hover:shadow-xl bg-secondary/50 border-secondary">
+            <div className="p-4 space-y-4 rounded-lg group-hover:shadow-xl shadow bg-background ">
               <h3 className=" font-['PoorRichard'] text-2xl">Tea leave</h3>
               <p>
                 Its originated from India, famous for its indication of allergy

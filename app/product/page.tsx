@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { IntroSection } from "@/components/sharedUi/IntroSection";
 import SecondHero from "@/components/sharedUi/SecondHero";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { FilterBar } from "./comps/FilterBar";
 import { ProductDetailModal } from "@/components/sharedUi/ProductDetailModal";
 import { getSheetData, SheetData, transformSheetData } from "@/lib/getSheet";
@@ -31,6 +31,54 @@ const ProductDetail = () => {
 
   console.log("first: ", tableData);
 
+  const FilterByTreatmentArray = useMemo(() => {
+    return tableData
+      .map((item) => item.forTreatmentOf)
+      .filter((item) => item && item.trim() !== "");
+  }, [tableData]);
+
+  const FilterByContentArray = useMemo(() => {
+    return tableData
+      .flatMap((item) => item.ingredients)
+      .join(",")
+      .split(",")
+      .filter((item) => item && item.trim() !== "");
+  }, [tableData]);
+
+  const [selectedAilments, setSelectedAilments] = useState<string[]>([]);
+  const [selectedContents, setSelectedContents] = useState<string[]>([]);
+
+  const handleSelectionChange = (
+    selectedAilments: string[],
+    selectedContents: string[]
+  ) => {
+    setSelectedAilments(selectedAilments);
+    setSelectedContents(selectedContents);
+  };
+
+  // Memoizing filteredData to optimize performance
+  const filteredData = useMemo(() => {
+    return tableData.filter((item) => {
+      const matchesAilment =
+        selectedAilments.length === 0 ||
+        selectedAilments.some((ailment) =>
+          item.forTreatmentOf.toLowerCase().includes(ailment.toLowerCase())
+        );
+
+      const matchesContent =
+        selectedContents.length === 0 ||
+        item.ingredients
+          .split(",")
+          .some((ingredient: string) =>
+            selectedContents.some((content) =>
+              ingredient.toLowerCase().includes(content.toLowerCase())
+            )
+          );
+
+      return matchesAilment && matchesContent;
+    });
+  }, [tableData, selectedAilments, selectedContents]);
+
   return (
     <div className="w-screen bg-blue ">
       <SecondHero title={"Products (Global New Herbal Life) "} image={""} />
@@ -49,14 +97,25 @@ At GNHL, we are committed to delivering effective, natural solutions that enhanc
         {/* filter ad control */}
         <div className="border ">
           <div className="sticky top-4 ">
-            <FilterBar />
+            <FilterBar
+              FilterByTreatmentArray={FilterByTreatmentArray}
+              FilterByContentArray={FilterByContentArray}
+              onSelectionChange={handleSelectionChange}
+            />
           </div>
         </div>
         {/* Product list */}
         <div className="flex flex-wrap gap-2">
-          {Array.from({ length: 5 }).map((a, i) => (
+          {filteredData.map((a, i) => (
             <div key={i}>
-              <ProductDetailModal />
+              <ProductDetailModal
+                trigger={undefined}
+                img={a?.image_url}
+                name={a?.name}
+                description={a?.description}
+                forTreatmentOf={a?.forTreatmentOf}
+                ingredient={a?.ingredients?.split(",")}
+              />
             </div>
           ))}
         </div>

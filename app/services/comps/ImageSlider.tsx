@@ -17,7 +17,7 @@ type prop = {
 export const ImageSlider = ({ images, slidesToShow, slidesToScroll }: prop) => {
   const sliderRef = useRef<Slider | null>(null);
   const [selectedSlide, setSelectedSlide] = useState(""); // Track the active slide index
-  const [open, setOpen] = useState(true); // Track the active slide index
+  const [open, setOpen] = useState(false); // Track the active slide index
 
   const settings = {
     infinite: true,

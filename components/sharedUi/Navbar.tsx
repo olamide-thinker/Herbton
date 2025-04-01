@@ -49,13 +49,15 @@ const NavBar = () => {
   return (
     <div className="flex items-center justify-between w-full p-4 border">
       {/* Logo */}
-      <Image
-        src={"/assets/Herbton_logo.svg"}
-        alt={"Herbton Logo"}
-        height={1000}
-        width={1000}
-        className=" h-[60px] w-fit"
-      />
+      <Link href={"/"}>
+        <Image
+          src={"/assets/Herbton_logo.svg"}
+          alt={"Herbton Logo"}
+          height={1000}
+          width={1000}
+          className=" h-[60px] w-fit"
+        />
+      </Link>
 
       {/* Desktop Menu */}
       <div className="hidden gap-2 lg:flex">

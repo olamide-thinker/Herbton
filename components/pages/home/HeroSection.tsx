@@ -45,7 +45,10 @@ const HeroSection = () => {
         </p>
         <div>
           <div className="flex cursor-pointer group gap-2 px-4 py-4 rounded-3xl  mt-8  items-center bg-secondary/10 text-secondary">
-            <FaPlayCircle size={32} className=" group-hover:scale-110" />
+            <FaPlayCircle
+              size={32}
+              className=" group-hover:scale-110 group-dow"
+            />
             <p>Global New Herbal Life Documentary</p>
           </div>
         </div>
