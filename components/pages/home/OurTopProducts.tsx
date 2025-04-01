@@ -1,14 +1,38 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { Button } from "@/components/ui/button";
 import { MoveRight, MoveLeft } from "lucide-react";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ProductDetailModal } from "@/components/sharedUi/ProductDetailModal";
+import { getSheetData, SheetData, transformSheetData } from "@/lib/getSheet";
 
 export const OurTopProducts = () => {
   const sliderRef = useRef<Slider | null>(null);
+  const [tableData, setTableData] = useState<Record<string, any>[]>([]);
+
+  useEffect(() => {
+    getSheetData({
+      sheetID: "1FnNN8wEO3jl02B7FrEYOfr5FdSt6csIi_ortuBj9o0Q",
+      sheetName: "products",
+      query: "SELECT *",
+      callback: sheetDataHandler,
+    });
+  }, []);
+
+  const sheetDataHandler = (data: SheetData) => {
+    if (!data || !Array.isArray(data)) {
+      console.error("Invalid sheet data received:", data);
+      return;
+    }
+    const formattedData = transformSheetData(data);
+    console.log("Formatted Sheet Data:", formattedData);
+    setTableData(formattedData);
+  };
+
+  console.log("first: ", tableData);
 
   const settings = {
     infinite: true,
@@ -56,10 +80,17 @@ export const OurTopProducts = () => {
 
       <div className="relative">
         <Slider ref={sliderRef} {...settings} className="w-full">
-          {Array.from({ length: 6 }).map((_, i) => (
+          {tableData.slice(0, 6).map((a, i) => (
             <div key={i} className="w-full">
               {/* <ProductCard /> */}
-              <ProductDetailModal />
+              <ProductDetailModal
+                trigger={undefined}
+                img={a?.image_url}
+                name={a?.name}
+                description={a?.description}
+                forTreatmentOf={a?.forTreatmentOf}
+                ingredient={a?.ingredients?.split(",")}
+              />
             </div>
           ))}
         </Slider>
