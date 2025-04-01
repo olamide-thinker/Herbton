@@ -18,6 +18,8 @@ import { useRouter } from "next/navigation";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { RippleEffect } from "../ui/RippleEffect";
 
+import { usePathname } from "next/navigation";
+
 // Assuming you're using Heroicons for the hamburger icon
 
 const NavBar = () => {
@@ -44,6 +46,10 @@ const NavBar = () => {
     },
   ];
 
+  const path = usePathname();
+
+  console.log("path name: ", path);
+
   const router = useRouter();
 
   return (
@@ -65,7 +71,9 @@ const NavBar = () => {
           <Link href={item.url} key={i}>
             <Button
               onClick={() => router.push(item.url)}
-              className="text-xl"
+              className={`text-xl   ${
+                path.includes(item.url) && "bg-primary  text-secondary"
+              }`}
               variant={"ghost"}
             >
               {item.title}

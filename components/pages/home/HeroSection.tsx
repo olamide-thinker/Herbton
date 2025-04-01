@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import { FaPlayCircle } from "react-icons/fa";
+// import { FaPlayCircle } from "react-icons/fa";
+import { VideoPopup } from "./videoplayer";
 
 // Define the words that will cycle through
 const words = ["Reimagining", "Revolutionizing", "Transforming"];
@@ -44,13 +45,14 @@ const HeroSection = () => {
           healing solutions for a healthier world.
         </p>
         <div>
-          <div className="flex cursor-pointer group gap-2 px-4 py-4 rounded-3xl  mt-8  items-center bg-secondary/10 text-secondary">
+          {/* <div className="flex cursor-pointer group gap-2 px-4 py-4 rounded-3xl  mt-8  items-center bg-secondary/10 text-secondary">
             <FaPlayCircle
               size={32}
               className=" group-hover:scale-110 group-dow"
             />
             <p>Global New Herbal Life Documentary</p>
-          </div>
+          </div> */}
+          <VideoPopup videoId={"HYyZbLGaenM"} />
         </div>
       </div>
 
