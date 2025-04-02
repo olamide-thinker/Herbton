@@ -32,13 +32,15 @@ const CopyText = ({ text }: { text: string }) => {
   };
 
   return (
-    <div className="flex items-center gap-2 p-2 border border-gray-200 rounded-lg w-fit">
-      <Globe className="w-4 h-4 text-primary" />
-      <span className="text-gray-700">{text}</span>
+    <div className="flex items-center gap-2 p-2 text-sm border border-gray-200 rounded-lg group w-fit">
+      <Globe className="w-4 h-4 text-primary group-hover:scale-110" />
+      <span className="text-gray-700 hover:underline cursor-pointer">
+        {text}
+      </span>
       <Button
-        className="w-fit"
-        variant="outline"
-        size="sm"
+        className="p-1 w-fit h-fit"
+        variant="ghost"
+        size="icon"
         onClick={handleCopy}
       >
         <CopyIcon className="w-4 h-4" />

@@ -45,16 +45,16 @@ export const ProductDetailModal = ({
           </div>
         )}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[90vw] h-[90vh] overflow-y-auto items-center p-6 rounded-2xl shadow-2xl bg-background">
+      <DialogContent className="sm:max-w-fit h-[90vh] overflow-y-auto items-center p-6 rounded-2xl shadow-2xl bg-background">
         <DialogTitle className="text-xl font-semibold text-primary">
           <CopyableText text="https://www.herbton.com/product/Producturl" />
         </DialogTitle>
 
-        <div className="flex flex-col max-w-[85vw] items-center gap-8">
+        <div className="flex flex-col  items-center gap-8">
           <ProductDetailHero image={img} />
 
           {/* Product Overview */}
-          <div className="flex flex-col items-center p-6 space-y-4 text-center w-[700px]">
+          <div className="flex flex-col items-center p-6 space-y-4 text-center ">
             <h1 className="font-['PoorRichard'] text-4xl text-primary">
               {name || "Product Name"}
             </h1>
@@ -72,7 +72,7 @@ export const ProductDetailModal = ({
           </div>
 
           {/* Scientific Paper Section */}
-          <div className="flex gap-6 items-center p-6 w-[600px] bg-secondary/75 rounded-2xl shadow-lg">
+          <div className="flex gap-6 items-center p-6  bg-secondary/75 rounded-2xl shadow-lg">
             <Image
               src="/assets/products/Scientific_paperImg.png"
               alt="Scientific Paper"
