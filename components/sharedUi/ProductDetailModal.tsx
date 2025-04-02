@@ -37,7 +37,7 @@ export const ProductDetailModal = ({
         {trigger || (
           <div>
             <ProductCard
-              image={img}
+              image={img || ""}
               name={name}
               short_description={description}
               forTreatmentOf={forTreatmentOf}
@@ -51,7 +51,7 @@ export const ProductDetailModal = ({
         </DialogTitle>
 
         <div className="flex flex-col max-w-[85vw] items-center gap-8">
-          <ProductDetailHero image={"1J0n_Jr2n3L_67PbI73R0ods7P3zqt1UY"} />
+          <ProductDetailHero image={img} />
 
           {/* Product Overview */}
           <div className="flex flex-col items-center p-6 space-y-4 text-center w-[700px]">

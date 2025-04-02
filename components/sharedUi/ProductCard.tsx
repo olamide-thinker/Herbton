@@ -11,7 +11,7 @@ type props = {
 };
 
 export const ProductCard = ({
-  // image,
+  image,
   name,
   short_description,
   forTreatmentOf,
@@ -21,11 +21,12 @@ export const ProductCard = ({
       <div className="relative w-full max-w-[350px] flex flex-col gap-4 p-4 bg-[#FAFAFA] rounded-lg cursor-pointer  hover:bg-[#F3FFE5] hover:shadow-md pb-4">
         {/* Product Image */}
         <Image
-          src={`https://drive.google.com/uc?export=view&id=1GZhRjSc17sxdsQRzmy7qeCKObLSFcUqm`}
-          // src={`https://drive.google.com/uc?export=view&id=${image}`}
+          // src={`https://drive.google.com/uc?export=view&id=1GZhRjSc17sxdsQRzmy7qeCKObLSFcUqm`}
+          src={image || ""}
           alt={name}
           width={1000}
           height={1000}
+          priority
           className="relative object-cover w-full transition-all duration-300 ease-in-out transform rounded-lg h-80 group-hover:scale-105"
         />
 

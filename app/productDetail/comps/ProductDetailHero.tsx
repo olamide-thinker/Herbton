@@ -13,11 +13,12 @@ export const ProductDetailHero = ({ image }: { image: string }) => {
           className=" aspect-square h-[100px]"
         />
         <Image
-          src={`https://drive.google.com/uc?export=view&id=${image}`}
+          src={image || ""}
           // src={"/assets/products/ProductImage.png"}
           alt="products name"
           height={2000}
           width={2000}
+          priority
           className=" w-auto  rounded-3xl  h-[400px] "
         />
         <Image
