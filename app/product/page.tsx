@@ -96,14 +96,12 @@ At GNHL, we are committed to delivering effective, natural solutions that enhanc
       <div className="relative rounded flex gap-4 p-2 md:m-8 h-fit  overflow-hidden border-2">
         {/* filter ad control */}
         <div className=" absolute md:relative ">
-          <div className=" ">
-            <div className=" sticky block  top-0  z-20">
-              <FilterBar
-                FilterByTreatmentArray={FilterByTreatmentArray}
-                FilterByContentArray={FilterByContentArray}
-                onSelectionChange={handleSelectionChange}
-              />
-            </div>
+          <div className=" sticky bottom-0  z-20">
+            <FilterBar
+              FilterByTreatmentArray={FilterByTreatmentArray}
+              FilterByContentArray={FilterByContentArray}
+              onSelectionChange={handleSelectionChange}
+            />
           </div>
         </div>
 

@@ -90,14 +90,14 @@ export const FilterBar = ({
       </Button>
 
       <div className={`${isHidden ? "hidden" : "block"} mt-4`}>
-        <p className="text-xs italic whitespace-nowrap text-muted-foreground">
+        <p className="text-xs pl-2 italic whitespace-nowrap text-muted-foreground">
           Filter products by:
         </p>
 
         <Tabs defaultValue="ailment" className="w-full">
           <TabsList className="flex justify-start gap-4 mb-4 bg-none">
             <TabsTrigger value="ailment" className="text-sm">
-              Ailment Type
+              Treatment
             </TabsTrigger>
             <TabsTrigger value="ingredient" className="text-sm">
               Ingredient
