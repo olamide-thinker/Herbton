@@ -43,7 +43,7 @@ const ContactUsPage = () => {
   };
 
   return (
-    <div className="container space-y-8">
+    <div className="space-y-8">
       {/* <h2 className="text-3xl font-bold text-center mb-8">Contact Us</h2> */}
       <SecondHero
         title={"Contact Us"}

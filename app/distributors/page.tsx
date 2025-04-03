@@ -55,7 +55,7 @@ const DistributorCard = ({
 
 const DistributorListPage = () => {
   return (
-    <div className="container space-y-4 ">
+    <div className="space-y-4 ">
       <SecondHero
         title={"Active Distributors"}
         image={"/assets/delivery/delivery.jpg"}
