@@ -97,7 +97,7 @@ At GNHL, we are committed to delivering effective, natural solutions that enhanc
         {/* filter ad control */}
         <div className=" absolute md:relative ">
           <div className=" ">
-            <div className=" sticky block  top-0  ">
+            <div className=" sticky block  top-0  z-20">
               <FilterBar
                 FilterByTreatmentArray={FilterByTreatmentArray}
                 FilterByContentArray={FilterByContentArray}
