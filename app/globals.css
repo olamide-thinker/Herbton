@@ -196,6 +196,12 @@ scrollbar-button {
   animation: text-focus-in 2s ease-out;
 }
 
+.sticky-test {
+  position: sticky;
+  top: 4px;
+  z-index: 20;
+}
+
 .card-container {
   perspective: 1000px;
 }

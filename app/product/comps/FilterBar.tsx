@@ -20,7 +20,7 @@ export const FilterBar = ({
   FilterByContentArray,
   onSelectionChange,
 }: Props) => {
-  const [isHidden, setIsHidden] = useState(false);
+  const [isHidden, setIsHidden] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
 
   const [selectedAilments, setSelectedAilments] = useState<string[]>([]);
@@ -75,17 +75,18 @@ export const FilterBar = ({
 
   return (
     <div
-      className={`p-2 space-y-4 border-r w-fit h-fit-content ${
-        isHidden ? " sm:w-fit" : " sm:w-[250px]"
-      }`}
+      className={`p-2 space-y-4 border-r w-fit h-fit-content bg-background
+         border shadow-2xl rounded  ${
+           isHidden ? " sm:w-fit" : " sm:w-[250px]"
+         }`}
     >
       <Button
         variant={"secondary"}
         size={"sm"}
         onClick={() => setIsHidden(!isHidden)}
-        className="flex items-center gap-2"
+        className="flex items-center gap-2 w-full"
       >
-        <IoFilter /> Filter
+        <IoFilter /> <span className="italic ml-2">Filter</span>
       </Button>
 
       <div className={`${isHidden ? "hidden" : "block"} mt-4`}>

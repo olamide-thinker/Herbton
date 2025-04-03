@@ -93,19 +93,22 @@ In addition to our herbal remedies, GNHL also offers a wide selection of cosmeti
 At GNHL, we are committed to delivering effective, natural solutions that enhance your well-being and beauty.`}
       />
 
-      <div className="relative flex gap-4 p-2 m-8 border-2">
+      <div className="relative rounded flex gap-4 p-2 md:m-8 h-fit  overflow-hidden border-2">
         {/* filter ad control */}
-        <div className="border ">
-          <div className="sticky top-4 ">
-            <FilterBar
-              FilterByTreatmentArray={FilterByTreatmentArray}
-              FilterByContentArray={FilterByContentArray}
-              onSelectionChange={handleSelectionChange}
-            />
+        <div className=" absolute md:relative ">
+          <div className=" ">
+            <div className=" sticky block  top-0  ">
+              <FilterBar
+                FilterByTreatmentArray={FilterByTreatmentArray}
+                FilterByContentArray={FilterByContentArray}
+                onSelectionChange={handleSelectionChange}
+              />
+            </div>
           </div>
         </div>
+
         {/* Product list */}
-        <div className="flex flex-wrap gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-2 z-0 max-h-[90vh] overflow-y-scroll">
           {filteredData.map((a, i) => (
             <div key={i}>
               <ProductDetailModal
