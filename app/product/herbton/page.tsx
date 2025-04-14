@@ -3,7 +3,7 @@
 import { IntroSection } from "@/components/sharedUi/IntroSection";
 import SecondHero from "@/components/sharedUi/SecondHero";
 import React, { useEffect, useMemo, useState } from "react";
-import { FilterBar } from "./comps/FilterBar";
+import { FilterBar } from "../comps/FilterBar";
 import { ProductDetailModal } from "@/components/sharedUi/ProductDetailModal";
 import { getSheetData, SheetData, transformSheetData } from "@/lib/getSheet";
 
@@ -81,9 +81,9 @@ const ProductDetail = () => {
 
   return (
     <div className="w-screen bg-blue ">
-      <SecondHero title={"Products (Global New Herbal Life) "} image={""} />
+      <SecondHero title={"Herbton Herbal Remedies "} image={""} />
       <IntroSection
-        title={"Global New Herbal Life (GNHL)"}
+        title={"Herbton"}
         content={` is a leading NAFDAC-approved manufacturer, renowned for our high-quality herbal remedies and cosmetics. With over 50 carefully crafted products, we take pride in producing, packaging, and distributing every item to ensure they meet the highest industry standards. <br><br>
 
 Our range of herbal remedies includes solutions for a variety of health concerns, such as diabetes, high blood pressure, asthma, ulcers, fertility, and infections, among others. Notable products include the Diabetes Remedy, Pile Remedy, High Blood Pressure Remedy, Asthma Remedy, and more. We also offer specialty treatments like Body Reset and Men's Remedy OTG.<br><br>

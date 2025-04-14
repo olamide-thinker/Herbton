@@ -31,6 +31,18 @@ const NavBar = () => {
     {
       title: "Products",
       url: "/product",
+      submenu: [
+        {
+          title: "Fumzy Lagos",
+          url: "/product/fumzyLagos",
+          img: "/assets/fumzy_lagos_logo.png",
+        },
+        {
+          title: "Herbton",
+          url: "/product/herbton",
+          img: "/assets/herbton_logo.png",
+        },
+      ],
     },
     {
       title: "Services",
@@ -53,32 +65,53 @@ const NavBar = () => {
   const router = useRouter();
 
   return (
-    <div className="flex items-center justify-between w-full p-4 border">
+    <div className="relative z-50 flex items-center justify-between w-full p-4 border">
       {/* Logo */}
       <Link href={"/"}>
         <Image
-          src={"/assets/Herbton_logo.svg"}
+          src={"/assets/GNHL_logo.svg"}
           alt={"Herbton Logo"}
           height={1000}
           width={1000}
-          className=" h-[60px] w-fit"
+          className=" h-[90px] pl-4 w-fit"
         />
       </Link>
 
       {/* Desktop Menu */}
       <div className="hidden gap-2 lg:flex">
         {menuItem.map((item, i) => (
-          <Link href={item.url} key={i}>
-            <Button
-              onClick={() => router.push(item.url)}
-              className={`text-xl   ${
-                path.includes(item.url) && "bg-primary  text-secondary"
-              }`}
-              variant={"ghost"}
-            >
-              {item.title}
-            </Button>
-          </Link>
+          <div key={i} className="relative group">
+            <Link href={item.url}>
+              <Button
+                onClick={() => router.push(item.url)}
+                className={`text-xl rounded-none text-[#034401]   ${
+                  path.includes(item.url) &&
+                  "bg-primary skew-x-12 text-secondary"
+                }`}
+                variant={"ghost"}
+              >
+                {item.title}
+              </Button>
+            </Link>
+            {item.submenu && (
+              <div className="absolute hidden w-[300px] bg-white border rounded-md shadow-lg group-hover:block">
+                {item.submenu.map((subitem, j) => (
+                  <Link href={subitem.url} key={j}>
+                    <RippleEffect className="p-2 py-4 text-lg flex gap-2 px-4  font-semibold whitespace-nowrap text-[#034401] hover:bg-gray-100">
+                      <Image
+                        src={subitem.img}
+                        alt={subitem.title}
+                        height={1000}
+                        width={1000}
+                        className="h-[30px] w-fit rounded-full border"
+                      />
+                      {subitem.title}
+                    </RippleEffect>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
         ))}
       </div>
 
@@ -107,10 +140,10 @@ const NavBar = () => {
             </SheetHeader>
 
             {/* Menu Items in the Sheet */}
-            <div className="flex flex-col p-4">
+            <div className="z-50 flex flex-col p-4">
               {menuItem.map((item, i) => (
                 <Link href={item.url} key={i}>
-                  <RippleEffect className="w-full p-4 text-xl  font-['PoorRichard'] border-b">
+                  <RippleEffect className="w-full p-4 text-xl text-[#034401]  font-['PoorRichard'] border-b">
                     {item.title}
                   </RippleEffect>
                 </Link>

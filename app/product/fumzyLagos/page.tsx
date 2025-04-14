@@ -3,7 +3,7 @@
 import { IntroSection } from "@/components/sharedUi/IntroSection";
 import SecondHero from "@/components/sharedUi/SecondHero";
 import React, { useEffect, useMemo, useState } from "react";
-import { FilterBar } from "./comps/FilterBar";
+import { FilterBar } from "../comps/FilterBar";
 import { ProductDetailModal } from "@/components/sharedUi/ProductDetailModal";
 import { getSheetData, SheetData, transformSheetData } from "@/lib/getSheet";
 
@@ -81,14 +81,10 @@ const ProductDetail = () => {
 
   return (
     <div className="w-screen bg-blue ">
-      <SecondHero title={"Products (Global New Herbal Life) "} image={""} />
+      <SecondHero title={"Fumzy Lagos Cosmetics"} image={""} />
       <IntroSection
-        title={"Global New Herbal Life (GNHL)"}
-        content={` is a leading NAFDAC-approved manufacturer, renowned for our high-quality herbal remedies and cosmetics. With over 50 carefully crafted products, we take pride in producing, packaging, and distributing every item to ensure they meet the highest industry standards. <br><br>
-
-Our range of herbal remedies includes solutions for a variety of health concerns, such as diabetes, high blood pressure, asthma, ulcers, fertility, and infections, among others. Notable products include the Diabetes Remedy, Pile Remedy, High Blood Pressure Remedy, Asthma Remedy, and more. We also offer specialty treatments like Body Reset and Men's Remedy OTG.<br><br>
-
-At GNHL, we are committed to delivering effective, natural solutions that enhance your well-being and beauty.`}
+        title={"Fumzy Lagos Cosmetics"}
+        content={`champions real skin and authentic confidence with chemical free products. Every blemish, every mark, every face and body — we see beauty in it all. Our herb based cosmetics products are made for everyone, designed to enhance what’s already there without covering up what makes you, you. We believe in the power of consistency, the value of self-love, and the kind of care that goes beyond skin deep. This is about feeling good in your own skin — not for anyone else, just for you. we have a wide selection of cosmetics designed to pamper and nourish your skin. Our products include luxurious items like Coffee Body Scrub, Facial Cleansing Spray, Body Butter, Anti-Stretch Mark Cream, Herbal Black Soap, and many more. We also provide essential hair and body care items such as Aloe Vera Hair Mist Spray, Foot Spray, and a range of Oud Body Sprays for a lasting fragrance.`}
       />
 
       <div className="relative flex gap-4 p-2 overflow-hidden border-2 rounded md:m-8 h-fit">
