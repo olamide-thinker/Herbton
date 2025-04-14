@@ -8,21 +8,21 @@ const Leadership = () => {
   const content = [
     {
       img: "",
-      name: "Dr. Ibrahim",
+      name: "Name",
       role: "",
-      detail:
-        "Dr. Ibrahim, a world-class, licensed oncology pharmacist based in the United Kingdom. He has a profound understanding of both pharmacological processes and the clinical standards that GNHNL will need to uphold. Dr. Alama is brilliant, with a calm and composed demeanor that truly sets him apart. Beyond his professional expertise, I deeply admire his approach to life as a father and husband— values that are essential in nurturing a truly healthy African society. One insightful idea Dr. Ibrahim proposed is emphasizing the concept of maintenance medicine as a pathway toward discoverable and eventual cures. He also highlighted the potential significance of focusing on diabetes and pancreatic cancer, two critical areas that could lead to groundbreaking advancements for medical community globally.",
+      detail: ""
+        // "Dr. Ibrahim, a world-class, licensed oncology pharmacist based in the United Kingdom. He has a profound understanding of both pharmacological processes and the clinical standards that GNHNL will need to uphold. Dr. Alama is brilliant, with a calm and composed demeanor that truly sets him apart. Beyond his professional expertise, I deeply admire his approach to life as a father and husband— values that are essential in nurturing a truly healthy African society. One insightful idea Dr. Ibrahim proposed is emphasizing the concept of maintenance medicine as a pathway toward discoverable and eventual cures. He also highlighted the potential significance of focusing on diabetes and pancreatic cancer, two critical areas that could lead to groundbreaking advancements for medical community globally.",
     },
     {
       img: "",
-      name: "Dr. Temilade",
+      name: "Name",
       role: "",
-      detail:
-        "Dr. Temilade, whose intellect places her among the top 0.0005% of Nigerian minds globally. I have a very deep respect for this woman. She specializes in cancer research and currently works on behalf of Google’s founders, Sergey Brin and Larry Page. Her expertise in biochemistry and the scientific process is unparalleled, and she has already developed actionable ideas that could greatly benefit GNHNL. She is eager to meet you and share her insights. You can explore her profile on ResearchGate [https://www.researchgate.net/profile/Linda-Senbanjo. One of the ideas Dr. Temilade explored is the development of an African Herbal Atlas. This atlas would be integrated with GNHNL’s website, making it accessible to the global medical and scientific community.",
+      detail:""
+        // "Dr. Temilade, whose intellect places her among the top 0.0005% of Nigerian minds globally. I have a very deep respect for this woman. She specializes in cancer research and currently works on behalf of Google’s founders, Sergey Brin and Larry Page. Her expertise in biochemistry and the scientific process is unparalleled, and she has already developed actionable ideas that could greatly benefit GNHNL. She is eager to meet you and share her insights. You can explore her profile on ResearchGate [https://www.researchgate.net/profile/Linda-Senbanjo. One of the ideas Dr. Temilade explored is the development of an African Herbal Atlas. This atlas would be integrated with GNHNL’s website, making it accessible to the global medical and scientific community.",
     },
     {
-      img: "/assets/leadership/ifedayo_el.jpg",
-      name: "Ifedayo Emmanuel",
+      img: "",
+      name: "Name",
       role: "",
       detail: "",
     },
