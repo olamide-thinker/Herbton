@@ -1,10 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import ContactMenu from "./ContactMenu";
 
 export const Footer = () => {
   return (
     <footer className="relative flex flex-col items-center justify-center w-screen py-8 overflow-hidden bg-black">
+      <div className="w-fit fixed bottom-5 right-5 z-50">
+        <ContactMenu />
+      </div>
       {/* Main Footer Content */}
       <div className="grid grid-cols-1 gap-10 p-4 pb-8 sm:grid-cols-2 lg:grid-cols-4 sm:px-8">
         {/* Corporate Column */}

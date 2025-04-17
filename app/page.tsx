@@ -28,7 +28,12 @@ export default function Home() {
         <OurImpacts />
 
         {/* Top Products Section */}
-        <OurTopProducts />
+        <OurTopProducts sheetName={"product"} title={"Our Top Products"} />
+        {/* Top Products Section */}
+        <OurTopProducts
+          sheetName={"fumzyLagos"}
+          title={"Our Top cusmetic Products"}
+        />
 
         {/* Testimonials Section */}
         <Testimonials />

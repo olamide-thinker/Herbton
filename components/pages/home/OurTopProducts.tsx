@@ -9,18 +9,23 @@ import "slick-carousel/slick/slick-theme.css";
 import { ProductDetailModal } from "@/components/sharedUi/ProductDetailModal";
 import { getSheetData, SheetData, transformSheetData } from "@/lib/getSheet";
 
-export const OurTopProducts = () => {
+interface prop {
+  sheetName: string;
+  title: string;
+}
+
+export const OurTopProducts = ({ sheetName, title }: prop) => {
   const sliderRef = useRef<Slider | null>(null);
   const [tableData, setTableData] = useState<Record<string, any>[]>([]);
 
   useEffect(() => {
     getSheetData({
       sheetID: "1FnNN8wEO3jl02B7FrEYOfr5FdSt6csIi_ortuBj9o0Q",
-      sheetName: "products",
+      sheetName: sheetName,
       query: "SELECT *",
       callback: sheetDataHandler,
     });
-  }, []);
+  }, [sheetName]);
 
   const sheetDataHandler = (data: SheetData) => {
     if (!data || !Array.isArray(data)) {
@@ -75,7 +80,7 @@ export const OurTopProducts = () => {
   return (
     <section className="relative w-full p-8 overflow-hidden bg-gray-50">
       <h2 className="mb-8 text-3xl font-[PoorRichard]  text-center text-primary">
-        Our Top Products
+        {title}
       </h2>
 
       <div className="relative">

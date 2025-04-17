@@ -44,7 +44,7 @@ export const Testimonials = () => {
         {Array.from({ length: 4 }).map((_, i) => (
           <div
             key={i}
-            className={`relative transition-all duration-300 transform ${
+            className={`relative transition-all py-8 duration-300 transform ${
               currentIndex === i ? "scale-100" : "scale-60 blur-md"
             } ease-in-out`}
           >

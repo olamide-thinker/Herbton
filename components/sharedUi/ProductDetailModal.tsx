@@ -50,7 +50,7 @@ export const ProductDetailModal = ({
           <CopyableText text="https://www.herbton.com/product/Producturl" />
         </DialogTitle>
 
-        <div className="flex flex-col  items-center gap-8">
+        <div className="flex flex-col items-center gap-8">
           <ProductDetailHero image={img} />
 
           {/* Product Overview */}
@@ -72,7 +72,7 @@ export const ProductDetailModal = ({
           </div>
 
           {/* Scientific Paper Section */}
-          <div className="flex gap-6 items-center p-6  bg-secondary/75 rounded-2xl shadow-lg">
+          <div className="flex items-center gap-6 p-6 shadow-lg bg-secondary/75 rounded-2xl">
             <Image
               src="/assets/products/Scientific_paperImg.png"
               alt="Scientific Paper"
@@ -117,13 +117,13 @@ export const ProductDetailModal = ({
             {Array.from({ length: 5 }).map((_, i) => (
               <div
                 key={i}
-                className="flex p-6 rounded-xl bg-background shadow-md gap-2"
+                className="flex gap-2 p-6 shadow-md rounded-xl bg-background"
               >
                 <h4 className="text-[20px] font-['PoorRichard'] text-primary">
                   Avoid Alcohol while taking this medicine
                 </h4>
                 <div className="min-h-full bg-muted/50 p-0.5"></div>
-                <p className="text-gray-700 text-lg">
+                <p className="text-lg text-gray-700">
                   This plant, originating from India, is known for its
                   anti-allergy effects. It contains locolintygermin, which binds
                   with colaminyn in the body to fight against rapid irritation.
