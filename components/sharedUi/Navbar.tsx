@@ -19,6 +19,7 @@ import { HiMenuAlt2 } from "react-icons/hi";
 import { RippleEffect } from "../ui/RippleEffect";
 
 import { usePathname } from "next/navigation";
+import { ChevronDownIcon } from "lucide-react";
 
 // Assuming you're using Heroicons for the hamburger icon
 
@@ -86,11 +87,12 @@ const NavBar = () => {
                 onClick={() => router.push(item.url)}
                 className={`text-xl rounded-none text-[#034401]   ${
                   path.includes(item.url) &&
-                  "bg-primary skew-x-12 text-secondary"
+                  "bg-primary skew-x-12 text-secondary "
                 }`}
                 variant={"ghost"}
               >
-                {item.title}
+                {item.title}{" "}
+                {item?.submenu && <ChevronDownIcon className="w-4 h-4 ml-2" />}
               </Button>
             </Link>
             {item.submenu && (

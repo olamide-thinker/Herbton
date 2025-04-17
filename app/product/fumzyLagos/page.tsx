@@ -13,7 +13,7 @@ const ProductDetail = () => {
   useEffect(() => {
     getSheetData({
       sheetID: "1FnNN8wEO3jl02B7FrEYOfr5FdSt6csIi_ortuBj9o0Q",
-      sheetName: "products",
+      sheetName: "fumzyLagos",
       query: "SELECT *",
       callback: sheetDataHandler,
     });
@@ -101,18 +101,25 @@ const ProductDetail = () => {
 
         {/* Product list */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-2 z-0 max-h-[90vh] overflow-y-scroll">
-          {filteredData.map((a, i) => (
-            <div key={i}>
-              <ProductDetailModal
-                trigger={undefined}
-                img={a?.image_url}
-                name={a?.name}
-                description={a?.description}
-                forTreatmentOf={a?.forTreatmentOf}
-                ingredient={a?.ingredients?.split(",")}
-              />
-            </div>
-          ))}
+          {filteredData.map((a, i) => {
+            console.log(">>>------->>", a?.image_url.includes("cloudinary"));
+
+            return (
+              <div key={i}>
+                <ProductDetailModal
+                  trigger={undefined}
+                  img={
+                    (a?.image_url.includes("cloudinary") && a?.image_url) || ""
+                  }
+                  // img={""}
+                  name={a?.name}
+                  description={a?.description}
+                  forTreatmentOf={a?.forTreatmentOf}
+                  ingredient={a?.ingredients?.split(",")}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
