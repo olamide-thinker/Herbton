@@ -25,7 +25,7 @@ export default function ContactMenu() {
 
       {/* Conditional Tooltip / Contact Options */}
       {isOpen && (
-        <div className="absolute z-50 flex flex-col gap-2 p-4 ml-4 bg-white border shadow-lg bottom-5 right-full rounded-xl">
+        <div className="absolute z-50 flex flex-col gap-2 p-4 bg-white border shadow-lg bottom-1 right-full rounded-xl">
           {/* WhatsApp */}
           <a
             href="https://wa.me/1234567890"
