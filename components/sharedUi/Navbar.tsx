@@ -122,7 +122,7 @@ const NavBar = () => {
             <SheetHeader>
               <SheetTitle className="text-xl">
                 <Image
-                  src={"/assets/Herbton_logo.svg"}
+                  src={"/assets/GNHL_logo.svg"}
                   alt={"Herbton Logo"}
                   height={1000}
                   width={1000}
