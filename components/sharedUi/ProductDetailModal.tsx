@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+// import Image from "next/image";
 import React from "react";
 import {
   Dialog,
@@ -8,7 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 // import { Ingredient } from "../../app/productDetail/comps/Ingredient";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ProductDetailHero } from "../../app/productDetail/comps/ProductDetailHero";
 import { ProductCard } from "./ProductCard";
@@ -72,7 +72,7 @@ export const ProductDetailModal = ({
           </div>
 
           {/* Scientific Paper Section */}
-          <div className="flex items-center gap-6 p-6 shadow-lg bg-secondary/75 rounded-2xl">
+          {/* <div className="flex items-center gap-6 p-6 shadow-lg bg-secondary/75 rounded-2xl">
             <Image
               src="/assets/products/Scientific_paperImg.png"
               alt="Scientific Paper"
@@ -94,7 +94,7 @@ export const ProductDetailModal = ({
                 <Button variant="link">Read on Medium</Button>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <Divider />
 
