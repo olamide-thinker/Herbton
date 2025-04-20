@@ -12,7 +12,7 @@ const SecondHero = ({ title, image }: prop) => {
       <div className="absolute inset-0 z-0">
         <Image
           src={
-            image || "/assets/home/Biologically targeted Herbal mixtures.jpg"
+            image || "/assets/home/Biologically_targeted_Herbal_mixtures.jpg"
           }
           alt="Placeholder"
           width={1000}

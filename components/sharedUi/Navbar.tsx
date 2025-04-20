@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -10,20 +10,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-// import { useRouter } from "next/router";
-import { useRouter } from "next/navigation";
-
-// import { GiHamburgerMenu } from "react-icons/gi";
-// import { ListMinusIcon } from "lucide-react";
+import { useRouter, usePathname } from "next/navigation";
 import { HiMenuAlt2 } from "react-icons/hi";
+import { ChevronDownIcon } from "lucide-react";
 import { RippleEffect } from "../ui/RippleEffect";
 
-import { usePathname } from "next/navigation";
-import { ChevronDownIcon } from "lucide-react";
-
-// Assuming you're using Heroicons for the hamburger icon
-
 const NavBar = () => {
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const path = usePathname();
+  const router = useRouter();
+
   const menuItem = [
     {
       title: "Our Story",
@@ -31,17 +27,17 @@ const NavBar = () => {
     },
     {
       title: "Products",
-      url: "/product",
+      url: "#",
       submenu: [
-        {
-          title: "Fumzy Lagos",
-          url: "/product/fumzyLagos",
-          img: "/assets/fumzy_lagos_logo.png",
-        },
         {
           title: "Herbton",
           url: "/product/herbton",
           img: "/assets/herbton_logo.png",
+        },
+        {
+          title: "Fumzy Lagos",
+          url: "/product/fumzyLagos",
+          img: "/assets/fumzy_lagos_logo.png",
         },
       ],
     },
@@ -59,12 +55,6 @@ const NavBar = () => {
     },
   ];
 
-  const path = usePathname();
-
-  console.log("path name: ", path);
-
-  const router = useRouter();
-
   return (
     <div className="relative z-50 flex items-center justify-between w-full p-4 border">
       {/* Logo */}
@@ -74,7 +64,7 @@ const NavBar = () => {
           alt={"Herbton Logo"}
           height={1000}
           width={1000}
-          className=" h-[90px] pl-4 w-fit"
+          className="h-[90px] pl-4 w-fit"
         />
       </Link>
 
@@ -85,21 +75,23 @@ const NavBar = () => {
             <Link href={item.url}>
               <Button
                 onClick={() => router.push(item.url)}
-                className={`text-xl rounded-none text-[#034401]   ${
+                className={`text-xl rounded-none text-[#034401] ${
                   path.includes(item.url) &&
-                  "bg-primary skew-x-12 text-secondary "
+                  "bg-primary skew-x-12 text-secondary"
                 }`}
                 variant={"ghost"}
               >
-                {item.title}{" "}
+                {item.title}
                 {item?.submenu && <ChevronDownIcon className="w-4 h-4 ml-2" />}
               </Button>
             </Link>
+
+            {/* Desktop submenu */}
             {item.submenu && (
-              <div className="absolute hidden w-[300px] bg-white border rounded-md shadow-lg group-hover:block">
+              <div className="absolute hidden w-[300px] bg-white border rounded-md shadow-lg group-hover:block overflow-hidden">
                 {item.submenu.map((subitem, j) => (
                   <Link href={subitem.url} key={j}>
-                    <RippleEffect className="p-2 py-4 text-lg flex gap-2 px-4  font-semibold whitespace-nowrap text-[#034401] hover:bg-gray-100">
+                    <RippleEffect className="p-2 py-4 text-lg flex gap-2 px-4 font-semibold whitespace-nowrap text-[#034401] hover:bg-gray-100">
                       <Image
                         src={subitem.img}
                         alt={subitem.title}
@@ -117,18 +109,16 @@ const NavBar = () => {
         ))}
       </div>
 
-      {/* Mobile/Tablet Menu (Hamburger) */}
+      {/* Mobile Menu */}
       <div className="lg:hidden">
         <Sheet>
           <SheetTrigger asChild>
             <div>
-              <HiMenuAlt2 className="w-8 h-8 " />
+              <HiMenuAlt2 className="w-8 h-8" />
             </div>
-            {/* <GiHamburgerMenu className="w-8 h-8" /> */}
           </SheetTrigger>
 
           <SheetContent side="right">
-            {/* Header of the Sheet */}
             <SheetHeader>
               <SheetTitle className="text-xl">
                 <Image
@@ -141,14 +131,52 @@ const NavBar = () => {
               </SheetTitle>
             </SheetHeader>
 
-            {/* Menu Items in the Sheet */}
-            <div className="z-50 flex flex-col p-4">
+            <div className="z-50 flex flex-col gap-2 p-4 overflow-hidden">
               {menuItem.map((item, i) => (
-                <Link href={item.url} key={i}>
-                  <RippleEffect className="w-full p-4 text-xl text-[#034401]  font-['PoorRichard'] border-b">
-                    {item.title}
-                  </RippleEffect>
-                </Link>
+                <div key={i}>
+                  {!item.submenu ? (
+                    <Link href={item.url}>
+                      <RippleEffect className="w-full p-4 text-xl font-semibold text-[#034401] border-b">
+                        {item.title}
+                      </RippleEffect>
+                    </Link>
+                  ) : (
+                    <div>
+                      <button
+                        onClick={() =>
+                          setOpenSubmenu(
+                            openSubmenu === item.title ? null : item.title
+                          )
+                        }
+                        className="w-full p-4 text-xl text-left font-semibold text-[#034401]  border-b flex items-center justify-between"
+                      >
+                        {item.title}
+                        <ChevronDownIcon className="w-4 h-4 ml-2" />
+                      </button>
+
+                      {openSubmenu === item.title && (
+                        <div className="py-2 pl-4">
+                          {item.submenu.map((subitem, j) => (
+                            <Link href={subitem.url} key={j}>
+                              <RippleEffect className="flex gap-2 items-center  border-b p-2 text-[#034401] hover:bg-gray-100 ">
+                                <Image
+                                  src={subitem.img}
+                                  alt={subitem.title}
+                                  height={30}
+                                  width={30}
+                                  className="h-[30px] w-[30px] rounded-full border"
+                                />
+                                <span className="text-lg font-semibold ">
+                                  {subitem.title}
+                                </span>
+                              </RippleEffect>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </SheetContent>

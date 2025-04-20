@@ -32,7 +32,7 @@ export default function Home() {
         {/* Top Products Section */}
         <OurTopProducts
           sheetName={"fumzyLagos"}
-          title={"Our Top cosmetic Products"}
+          title={"Our Top Cosmetic Products"}
         />
 
         {/* Testimonials Section */}
