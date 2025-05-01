@@ -2,7 +2,7 @@ import HeroSection from "@/components/pages/home/HeroSection";
 import { OurImpacts } from "@/components/pages/home/OurImpacts";
 import { OurScientificProcessSection } from "@/components/pages/home/OurScientificProcessSection";
 import { OurTopProducts } from "@/components/pages/home/OurTopProducts";
-import { PressPublications } from "@/components/pages/home/PressPublications";
+// import { PressPublications } from "@/components/pages/home/PressPublications";
 import { Testimonials } from "@/components/pages/home/Testimonials";
 import { IntroSection } from "@/components/sharedUi/IntroSection";
 
