@@ -39,7 +39,7 @@ export default function Home() {
         <Testimonials />
 
         {/* Press Publications Section */}
-        <PressPublications />
+        {/* <PressPublications /> */}
       </main>
     </div>
   );
