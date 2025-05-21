@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Sheet,
   SheetContent,
@@ -19,6 +19,7 @@ const NavBar = () => {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const path = usePathname();
   const router = useRouter();
+  const desktopMenuRef = useRef(null);
 
   const menuItem = [
     {
@@ -55,6 +56,22 @@ const NavBar = () => {
     },
   ];
 
+  // Close desktop submenu on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        desktopMenuRef.current &&
+        !(desktopMenuRef.current as HTMLElement).contains(e.target as Node)
+      ) {
+        setOpenSubmenu(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="relative z-50 flex items-center justify-between w-full p-4 border">
       {/* Logo */}
@@ -69,26 +86,29 @@ const NavBar = () => {
       </Link>
 
       {/* Desktop Menu */}
-      <div className="hidden gap-2 lg:flex">
+      <div className="hidden gap-2 lg:flex" ref={desktopMenuRef}>
         {menuItem.map((item, i) => (
-          <div key={i} className="relative group">
-            <Link href={item.url}>
-              <Button
-                onClick={() => router.push(item.url)}
-                className={`text-xl rounded-none text-[#034401] ${
-                  path.includes(item.url) &&
-                  "bg-primary skew-x-12 text-secondary"
-                }`}
-                variant={"ghost"}
-              >
-                {item.title}
-                {item?.submenu && <ChevronDownIcon className="w-4 h-4 ml-2" />}
-              </Button>
-            </Link>
+          <div key={i} className="relative">
+            <Button
+              onClick={() =>
+                item.submenu
+                  ? setOpenSubmenu(
+                      openSubmenu === item.title ? null : item.title
+                    )
+                  : router.push(item.url)
+              }
+              className={`text-xl rounded-none text-[#034401] ${
+                path.includes(item.url) && "bg-primary skew-x-12 text-secondary"
+              }`}
+              variant={"ghost"}
+            >
+              {item.title}
+              {item?.submenu && <ChevronDownIcon className="w-4 h-4 ml-2" />}
+            </Button>
 
             {/* Desktop submenu */}
-            {item.submenu && (
-              <div className="absolute hidden w-[300px] bg-white border rounded-md shadow-lg group-hover:block overflow-hidden">
+            {item.submenu && openSubmenu === item.title && (
+              <div className="absolute z-50 w-[300px] bg-white border rounded-md shadow-lg overflow-hidden">
                 {item.submenu.map((subitem, j) => (
                   <Link href={subitem.url} key={j}>
                     <RippleEffect className="p-2 py-4 text-lg flex gap-2 px-4 font-semibold whitespace-nowrap text-[#034401] hover:bg-gray-100">
@@ -142,7 +162,7 @@ const NavBar = () => {
                     </Link>
                   ) : (
                     <div>
-                      <button
+                      <Button
                         onClick={() =>
                           setOpenSubmenu(
                             openSubmenu === item.title ? null : item.title
@@ -152,7 +172,7 @@ const NavBar = () => {
                       >
                         {item.title}
                         <ChevronDownIcon className="w-4 h-4 ml-2" />
-                      </button>
+                      </Button>
 
                       {openSubmenu === item.title && (
                         <div className="py-2 pl-4">

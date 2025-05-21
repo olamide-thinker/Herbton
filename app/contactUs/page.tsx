@@ -1,152 +1,59 @@
 "use client";
-import SecondHero from "@/components/sharedUi/SecondHero";
+
+import React from "react";
+import SecondHero from "@/components/sharedUi/SecondHero"; // Adjust path as needed
 import { Button } from "@/components/ui/button";
-import React, { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
-// A simple contact form component
 const ContactUsPage = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const [formError, setFormError] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Basic form validation
-    const errors = { name: "", email: "", message: "" };
-    if (!formData.name) errors.name = "Name is required";
-    if (!formData.email) errors.email = "Email is required";
-    if (!formData.message) errors.message = "Message is required";
-
-    setFormError(errors);
-
-    if (Object.values(errors).every((error) => error === "")) {
-      // Form is valid, handle form submission (send data to server or something)
-      console.log("Form data submitted:", formData);
-      alert("Thank you for contacting us!");
-    }
-  };
-
   return (
-    <div className="space-y-8">
-      {/* <h2 className="text-3xl font-bold text-center mb-8">Contact Us</h2> */}
+    <div className="space-y-12">
+      {/* Hero */}
       <SecondHero
-        title={"Contact Us"}
-        image={"/assets/delivery/delivery.jpg"}
+        title="Contact Us"
+        image="/assets/contact/contact.jpg" // Replace with your contact hero image
       />
 
-      {/* Contact Info Section */}
-      <div className="mb-10 text-center">
-        <p className="text-lg text-gray-700">
-          Feel free to reach out to us using the form below or through the
-          following contact information:
-        </p>
-        <div className="mt-6 flex gap-4 justify-center">
-          <div className="text-left border p-4 rounded">
-            <label className="text-left w-full">Email:</label>
-            <p className="text-xl font-semibold"> support@herbton.africa</p>
-          </div>
-          <div className="text-left border p-4 rounded">
-            <label className="text-left w-full">Phone:</label>
-            <p className="text-xl font-semibold"> +123 456 7890</p>
-          </div>
-          <div className="text-left border p-4 rounded">
-            <label className="text-left w-full">Address:</label>
-            <p className="text-xl font-semibold">
-              {" "}
-              123 herbton , Lagos, Nigeria
-            </p>
+      {/* Content Grid */}
+      <div className="grid max-w-6xl grid-cols-1 gap-12 px-6 py-12 mx-auto md:grid-cols-2">
+        {/* Contact Form */}
+        <form className="flex flex-col gap-4 p-8 bg-white rounded-lg shadow-md">
+          <h2 className="text-2xl font-semibold text-[#034401]">
+            Send Us a Message
+          </h2>
+          <Input placeholder="Your Name" required />
+          <Input type="email" placeholder="Your Email" required />
+          <Input type="tel" placeholder="Phone Number" />
+          <Textarea placeholder="Your Message" rows={6} required />
+          <Button
+            type="submit"
+            className="mt-2 bg-[#034401] text-white hover:bg-[#026002]"
+          >
+            Send Message
+          </Button>
+        </form>
+
+        {/* Contact Details */}
+        <div className="flex flex-col gap-6 text-[#034401]">
+          <h2 className="text-2xl font-semibold">Contact Information</h2>
+          <p className="text-lg">
+            <strong>Email:</strong> info@globalnewherballife.com
+          </p>
+          <p className="text-lg">
+            <strong>Phone:</strong> +234 812 483 1039
+          </p>
+          <p className="text-lg">
+            <strong>Address:</strong> 229, Herbert Macauley way,
+            Alagomeji, Yaba.
+          </p>
+          <div>
+            <h3 className="mt-4 text-lg font-semibold">Business Hours</h3>
+            <p>Monday – Friday: 9:00 AM – 5:00 PM</p>
+            <p>Saturday: 10:00 AM – 2:00 PM</p>
           </div>
         </div>
       </div>
-
-      {/* Contact Form */}
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-2xl border mb-8 mx-auto bg-white p-8 rounded-lg shadow-md"
-      >
-        <div className="mb-4">
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="mt-2 p-3 w-full border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
-          />
-          {formError.name && (
-            <p className="text-red-500 text-sm mt-2">{formError.name}</p>
-          )}
-        </div>
-
-        <div className="mb-4">
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Email Address
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="mt-2 p-3 w-full border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
-          />
-          {formError.email && (
-            <p className="text-red-500 text-sm mt-2">{formError.email}</p>
-          )}
-        </div>
-
-        <div className="mb-4">
-          <label
-            htmlFor="message"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="mt-2 p-3 w-full border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
-            rows={5}
-          />
-          {formError.message && (
-            <p className="text-red-500 text-sm mt-2">{formError.message}</p>
-          )}
-        </div>
-
-        <Button
-          type="submit"
-          className="w-full py-3 mt-4   font-semibold rounded-lg  focus:outline-none"
-        >
-          Submit
-        </Button>
-      </form>
     </div>
   );
 };

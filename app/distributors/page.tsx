@@ -31,7 +31,14 @@ const distributors = [
     email: "thenewherballife@gmail.com",
     location:
       "Aranse Complex, Ile Oba Roundabout Molipa, Ijebu Ode (Erunwon Ogun State)",
-    phone: "8058814775",
+    phone: "08058814775",
+  },
+  {
+    id: 5,
+    name: "Global New Herbal Life",
+    email: "info@globalnewherballife.com",
+    location: "229, Herbert Macauley way,Alagomeji, Yaba.",
+    phone: "08124831039",
   },
 ];
 
@@ -42,8 +49,8 @@ const DistributorCard = ({
   distributor: (typeof distributors)[0];
 }) => {
   return (
-    <div className="bg-white p-4 border rounded-lg shadow-md hover:shadow-lg transition-all">
-      <h3 className="font-semibold text-xl text-gray-800">
+    <div className="p-4 transition-all bg-white border rounded-lg shadow-md hover:shadow-lg">
+      <h3 className="text-xl font-semibold text-gray-800">
         {distributor.name}
       </h3>
       <p className="text-gray-600">Email: {distributor.email}</p>
@@ -60,10 +67,10 @@ const DistributorListPage = () => {
         title={"Active Distributors"}
         image={"/assets/delivery/delivery.jpg"}
       />
-      {/* <h2 className="text-2xl font-bold mb-6 text-center">
+      {/* <h2 className="mb-6 text-2xl font-bold text-center">
         List of Active Distributors
       </h2> */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 p-16 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 p-16 sm:grid-cols-2 lg:grid-cols-3">
         {distributors.map((distributor) => (
           <DistributorCard key={distributor.id} distributor={distributor} />
         ))}
