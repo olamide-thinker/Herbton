@@ -13,7 +13,7 @@ import {
 const contactOptions = [
   {
     label: "WhatsApp",
-    href: "https://wa.me/+2348124841039?text=Hello%20Herbtons%20Team!",
+    href: "https://wa.me/+2348124831039?text=Hello%20Herbtons%20Team!",
     icon: <IoLogoWhatsapp size={20} />,
     bg: "bg-emerald-200 hover:bg-emerald-300",
     textColor: "text-black",
