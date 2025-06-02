@@ -7,15 +7,15 @@ const distributors = [
     id: 1,
     name: "Excel Natural Wellness",
     email: "folakeadelusi.fa@gmail.com",
-    location: "Wema, Ojota, Lagos",
-    phone: "8024073411",
+    location: "Oodua Shopping Complex Ojota.",
+    phone: "08024073411",
   },
   {
     id: 2,
     name: "Deborah Herbal Tour",
     email: "Dejuzhealthandwellness@gmail.com",
-    location: "114 Igi Olugbin Road Awofodu Bus Stop Bariga Lagos",
-    phone: "7082553905",
+    location: "114, Igi Olugbin Road, Awofodu Bus Stop, Bariga, Lagos",
+    phone: "07082553905",
   },
   {
     id: 3,
@@ -23,21 +23,21 @@ const distributors = [
     email: "everythinglala1@gmail.com",
     location:
       "19 Orimolade Estate, Abba Johnson Akora Villa, Adeniyi Jones, Ikeja.",
-    phone: "8091093383",
+    phone: "08091093383",
   },
   {
     id: 4,
     name: "Global New Herbal Life",
     email: "thenewherballife@gmail.com",
     location:
-      "Aranse Complex, Ile Oba Roundabout Molipa, Ijebu Ode (Erunwon Ogun State)",
+      "Aranse Complex, Ile Oba Roundabout Molipa, Ijebu Ode, Ogun State",
     phone: "08058814775",
   },
   {
     id: 5,
     name: "Global New Herbal Life",
     email: "info@globalnewherballife.com",
-    location: "229, Herbert Macauley way,Alagomeji, Yaba.",
+    location: "229, Herbert Macauley way, Alagomeji, Yaba.",
     phone: "08124831039",
   },
 ];
