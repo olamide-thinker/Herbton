@@ -7,24 +7,42 @@ import { Separator } from "@/components/ui/separator";
 const Leadership = () => {
   const content = [
     {
-      img: "",
-      name: "Name",
-      role: "",
-      detail: ""
-        // "Dr. Ibrahim, a world-class, licensed oncology pharmacist based in the United Kingdom. He has a profound understanding of both pharmacological processes and the clinical standards that GNHNL will need to uphold. Dr. Alama is brilliant, with a calm and composed demeanor that truly sets him apart. Beyond his professional expertise, I deeply admire his approach to life as a father and husband— values that are essential in nurturing a truly healthy African society. One insightful idea Dr. Ibrahim proposed is emphasizing the concept of maintenance medicine as a pathway toward discoverable and eventual cures. He also highlighted the potential significance of focusing on diabetes and pancreatic cancer, two critical areas that could lead to groundbreaking advancements for medical community globally.",
+      img: "/assets/leadership/ogunbunmi_lajide.jpg",
+      name: "Ogunbunmi M. Olajide",
+      role: "Board Member",
+      detail:`As a dedicated Traditional Medicine Practitioner, I draw inspiration from my maternal grandfather's expertise in spiritual health. Building on this heritage, I've pursued certifications and training to enhance my skills. My expertise lies in infertility treatment and herbal remedies formulation and research 
+
+Qualifications
+- Graduate of Mass Communication, Olabisi Onabanjo University
+- Certified Herbal Medicine Practitioner, Lagos State Traditional Medicine Board
+- Diploma and Advanced Diploma, Faculty of Pharmacy, Department of Pharmacognosy, University of Lagos`,
+    }, {
+      img: "/assets/leadership/kayode_oseni.jpg",
+      name: "Kayode Oseni",
+      role: "Board Member",
+      detail:`Kayode Oseni, born on November 17, 1966, is a highly experienced practitioner and scholar in Natural Medicine. Starting his education in Lagos, he initially studied Drug and Chemical Technology, and  was in the University of Lagos,College of Medicine studying Physiotherapy before discovering his passion for healing through Herbal Medicine, influenced by his grandfather. He trained under traditional herbalists and became a member of the Ogun State Traditional Healers Association. His pursuit of holistic healing led him to study Asian Medicine, Naturopathic Medicine, and Energy Medicine, earning advanced degrees and a professorship. 
+      
+      Kayode has held prominent academic roles, including Head of Natural Medicine at African-American University, Deputy Provost at the National College of Natural Medicine, and Dean at Cyrillic College. He has also served as Ogun State Coordinator and Vice-President of the Nigerian Council of`,
     },
     {
-      img: "",
-      name: "Name",
-      role: "",
-      detail:""
-        // "Dr. Temilade, whose intellect places her among the top 0.0005% of Nigerian minds globally. I have a very deep respect for this woman. She specializes in cancer research and currently works on behalf of Google’s founders, Sergey Brin and Larry Page. Her expertise in biochemistry and the scientific process is unparalleled, and she has already developed actionable ideas that could greatly benefit GNHNL. She is eager to meet you and share her insights. You can explore her profile on ResearchGate [https://www.researchgate.net/profile/Linda-Senbanjo. One of the ideas Dr. Temilade explored is the development of an African Herbal Atlas. This atlas would be integrated with GNHNL’s website, making it accessible to the global medical and scientific community.",
+      img: "/assets/leadership/oluwafemi_adebayo.jpg",
+      name: "Oluwafemi Adebayo",
+      role: "Scientific Researcher",
+      detail:`Born on 28/04/1999, is a dedicated and results-driven Scientific Research Assistant with a strong foundation in data-driven research and interdisciplinary collaboration. With an academic background rooted in Business Administration, Oluwafemi developed a deep interest in evidence-based inquiry and scientific investigation during undergraduate studies, which inspired a research career.
+
+Trained in both quantitative and qualitative methodologies, Oluwafemi has developed expertise in experimental design, data collection, statistical analysis, and literature review. Proficient in tools such as SPSS, R, and Excel, he has contributed to research projects spanning public health, natural medicine, social sciences, and economic development. Known for being detail-oriented and reliable, Oluwafemi excels at managing research logistics and synthesizing findings into impactful reports and publications.
+
+Oluwafemi has worked with organizations such as  Global New Herbal Life, academic institutions, colla`,
     },
     {
-      img: "",
-      name: "Name",
-      role: "",
-      detail: "",
+      img: "/assets/leadership/basheeru_kazeem.jpg",
+      name: "Dr. Basheeru Kazeem Adebayo",
+      role: "Board Member",
+      detail: `Basheeru, Kazeem Adebayo (Ph.D.) is a dedicated chemist and research technologist with over two decades of experience in analytical chemistry, pharmaceutical quality control, and environmental science. He holds a Ph.D. in Chemistry from the University of Ilorin, along with an M.Sc. in Analytical Chemistry from the University of Lagos and a B.Sc. in Industrial Chemistry. His academic journey reflects a strong commitment to scientific excellence and applied research.
+
+Currently serving at the DKO Central Research and Reference Laboratories, University of Lagos, Dr. Basheeru is actively involved in analytical method development, HPLC and GCMS analysis, and laboratory quality management. He contributes to the training of undergraduate and postgraduate students, supervises research projects, and plays a key role in the university's ISO 17025:2017 accreditation process. His previous industry roles include significant contributions to WHO-prequalified antimalarial formulations at Swiss Pharma Nigeria Ltd.
+
+Dr. Basheeru’s research spans pharmaceutical analysis, environmental toxicology, medicinal plant studies, and nano-material development. He has published widely in reputable journals and presented at leading scientific conferences. A member of the Chemical Society of Nigeria (CSN) and the Institute of Chartered Chemists of Nigeria (MICCON), he continues to drive impactful research and uphold standards in scientific practice."`,
     },
   ];
 
@@ -53,8 +71,7 @@ const Leadership = () => {
             </h3>
             <p className="text-sm text-[#034401]">Founder/CEO</p>
             <p className="text-base font-[Poppins] text-[#034401]">
-              Exploring the molecular mechanisms of traditional herbs through
-              advanced scientific methods.
+              Funmi Lawrence-Ogidan is a certified Alternative Medical Doctor and founder of Global New Herbal Life Concept Ltd, with over 20 years in herbal medicine. She blends African traditional healing with modern practices to promote holistic wellness. Her work champions accessible, organic health solutions and advances the professionalization of herbal medicine in Nigeria.
             </p>
           </div>
         </div>
@@ -94,7 +111,7 @@ const Leadership = () => {
                     <h3 className="text-2xl text-primary font-['PoorRichard']">
                       {a.name}
                     </h3>
-                    <p className="text-sm">My role</p>
+                    <p className="text-sm">{a.role}</p>
                   </div>
                 </div>
 
