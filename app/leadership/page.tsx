@@ -21,8 +21,10 @@ Qualifications
       name: "Kayode Oseni",
       role: "Board Member",
       detail:`Kayode Oseni, born on November 17, 1966, is a highly experienced practitioner and scholar in Natural Medicine. Starting his education in Lagos, he initially studied Drug and Chemical Technology, and  was in the University of Lagos,College of Medicine studying Physiotherapy before discovering his passion for healing through Herbal Medicine, influenced by his grandfather. He trained under traditional herbalists and became a member of the Ogun State Traditional Healers Association. His pursuit of holistic healing led him to study Asian Medicine, Naturopathic Medicine, and Energy Medicine, earning advanced degrees and a professorship. 
-      
-      Kayode has held prominent academic roles, including Head of Natural Medicine at African-American University, Deputy Provost at the National College of Natural Medicine, and Dean at Cyrillic College. He has also served as Ogun State Coordinator and Vice-President of the Nigerian Council of`,
+
+Kayode has held prominent academic roles, including Head of Natural Medicine at African-American University, Deputy Provost at the National College of Natural Medicine, and Dean at Cyrillic College. He has also served as Ogun State Coordinator and Vice-President of the Nigerian Council of Physicians of Natural Medicine, contributing significantly to the promotion of alternative health in Nigeria.
+
+Since 1993, he has been CEO and Chief Consultant of Alayo Health and Wellness Centre in Abeokuta, providing natural healing services. As an author, he has published two books: The Healer's Manual (2019) and The Spirituality of Healing (2025). Kayode Oseni continues to share his expertise through teaching, leadership, and research in Natural Medicine.`,
     },
     {
       img: "/assets/leadership/oluwafemi_adebayo.jpg",
