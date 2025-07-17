@@ -204,11 +204,11 @@ const NavBar = () => {
       </div>
          <Button
           onClick={() => {
-            window.location.href = 'https://google.com';
+            window.location.href = 'http://www.globalnewherballife.com/';
           }}
           className="w-full p-4 text-xl text-left font-semibold text-[#034401] border-b flex items-center justify-between"
         >
-          {item.title}
+          Shop Now 
           <ChevronDownIcon className="w-4 h-4 ml-2" />
         </Button>
     </div>
