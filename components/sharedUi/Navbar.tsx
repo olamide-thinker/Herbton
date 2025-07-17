@@ -223,7 +223,7 @@ const NavBar = () => {
          <Button
              variant={'outline'}
           onClick={() => {
-            window.open('http://www.globalnewherballife.com/', '_blank', 'noopener,noreferrer');
+            window.open('http://www.globalnewherballife.com/herbton-remedies/', '_blank', 'noopener,noreferrer');
           }}
           className=" p-4 cursor-pointer text-xl text-left font-semibold text-[#034401] border-b flex items-center justify-between"
         >
