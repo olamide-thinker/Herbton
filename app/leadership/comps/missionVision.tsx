@@ -8,22 +8,22 @@ export const MissionVision = () => {
   return (
     <div className="flex justify-center w-full p-4 space-y-4">
       <Tabs defaultValue="mission" className="self-center w-full max-w-4xl">
-        <TabsList className="flex justify-center w-full mb-4 space-x-4 bg-none">
+        <TabsList className="flex justify-center w-full mb-4 space-x-2 bg-none">
           <TabsTrigger
             value="mission"
-            className="px-6 py-2 text-lg font-semibold transition-all duration-300 border-b-2 border-transparent text-primary hover:border-primary focus:border-primary"
+            className="px-2 py-2 text-lg font-semibold transition-all duration-300 border-b-2 border-transparent text-primary hover:border-primary focus:border-primary"
           >
             Our Mission
           </TabsTrigger>
           <TabsTrigger
             value="vision"
-            className="px-6 py-2 text-lg font-semibold transition-all duration-300 border-b-2 border-transparent text-primary hover:border-primary focus:border-primary"
+            className="px-2 py-2 text-lg font-semibold transition-all duration-300 border-b-2 border-transparent text-primary hover:border-primary focus:border-primary"
           >
             Our Vision
           </TabsTrigger>
           <TabsTrigger
             value="coreValue"
-            className="px-6 py-2 text-lg font-semibold transition-all duration-300 border-b-2 border-transparent text-primary hover:border-primary focus:border-primary"
+            className="px-2 py-2 text-lg font-semibold transition-all duration-300 border-b-2 border-transparent text-primary hover:border-primary focus:border-primary"
           >
             Our Core Values
           </TabsTrigger>

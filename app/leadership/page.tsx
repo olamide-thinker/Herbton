@@ -1,10 +1,16 @@
-import React from "react";
+"use client"
+import React, {useState} from "react";
 // import { RippleEffect } from "@/components/ui/RippleEffect";
 import { MissionVision } from "./comps/missionVision";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 
 const Leadership = () => {
+  const [flipped, setFlipped] = useState(false);
+
+  const toggleFlip = () => {
+    setFlipped((prev) => !prev);
+  };
   const content = [
     {
       img: "/assets/leadership/ogunbunmi_lajide.jpg",
@@ -90,7 +96,13 @@ Dr. Basheeru’s research spans pharmaceutical analysis, environmental toxicolog
                 {/* <RippleEffect className=" rounded-4xl"> */}
                 <div className="bg-white w-full h-[full] overflow-hidden border rounded-lg shadow-md hover:shadow-lg transition-all ">
                   <div className="card-container">
-                    <div className="card min-h-[300px] transform group-hover:rotate-y-180">
+                    {/*<div className="card min-h-[300px] transform group-hover:rotate-y-180 group-active:rotate-y-180  duration-300 ease-in-out">*/}
+                    <div
+                        className={`card min-h-[300px] transform duration-300 ease-in-out ${
+                            flipped ? 'rotate-y-180' : ''
+                        }`}
+                        onClick={toggleFlip}
+                    >
                       {/* card front */}
                       <div className="card-front">
                         <Image

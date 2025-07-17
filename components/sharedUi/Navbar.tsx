@@ -12,8 +12,10 @@ import {
 } from "@/components/ui/sheet";
 import { useRouter, usePathname } from "next/navigation";
 import { HiMenuAlt2 } from "react-icons/hi";
-import { ChevronDownIcon } from "lucide-react";
+import { ChevronDownIcon, ShoppingBag } from "lucide-react";
 import { RippleEffect } from "../ui/RippleEffect";
+
+
 
 const NavBar = () => {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
@@ -73,61 +75,63 @@ const NavBar = () => {
   }, []);
 
   return (
-    <div className="relative z-50 flex items-center justify-between w-full p-4 border">
-      {/* Logo */}
-      <Link href={"/"}>
-        <Image
-          src={"/assets/GNHL_logo.svg"}
-          alt={"Herbton Logo"}
-          height={1000}
-          width={1000}
-          className="h-[90px] pl-4 w-fit"
-        />
-      </Link>
+    <div className="relative w-screen z-50 flex sm:flex-row flex-col items-center justify-between  px-3 pt-2 pb-1 border">
 
-      {/* Desktop Menu */}
-      <div className="hidden gap-2 lg:flex" ref={desktopMenuRef}>
-        {menuItem.map((item, i) => (
-          <div key={i} className="relative">
-            <Button
-              onClick={() =>
-                item.submenu
-                  ? setOpenSubmenu(
-                      openSubmenu === item.title ? null : item.title
-                    )
-                  : router.push(item.url)
-              }
-              className={`text-xl rounded-none text-[#034401] ${
-                path.includes(item.url) && "bg-primary skew-x-12 text-secondary"
-              }`}
-              variant={"ghost"}
-            >
-              {item.title}
-              {item?.submenu && <ChevronDownIcon className="w-4 h-4 ml-2" />}
-            </Button>
+      <div className={'flex  items-center justify-between w-full mb-4 sm:mb-0'}>
+        {/* Logo */}
+        <Link href={"/"}>
+          <Image
+            src={"/assets/GNHL_logo.svg"}
+            alt={"Herbton Logo"}
+            height={1000}
+            width={1000}
+            className="h-[90px] pl-4 w-fit"
+          />
+        </Link>
 
-            {/* Desktop submenu */}
-            {item.submenu && openSubmenu === item.title && (
-              <div className="absolute z-50 w-[300px] bg-white border rounded-md shadow-lg overflow-hidden">
-                {item.submenu.map((subitem, j) => (
-                  <Link href={subitem.url} key={j}>
-                    <RippleEffect className="p-2 py-4 text-lg flex gap-2 px-4 font-semibold whitespace-nowrap text-[#034401] hover:bg-gray-100">
-                      <Image
-                        src={subitem.img}
-                        alt={subitem.title}
-                        height={1000}
-                        width={1000}
-                        className="h-[30px] w-fit rounded-full border"
-                      />
-                      {subitem.title}
-                    </RippleEffect>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+        {/* Desktop Menu */}
+        <div className="hidden gap-2 lg:flex" ref={desktopMenuRef}>
+          {menuItem.map((item, i) => (
+            <div key={i} className="relative">
+              <Button
+                onClick={() =>
+                  item.submenu
+                    ? setOpenSubmenu(
+                        openSubmenu === item.title ? null : item.title
+                      )
+                    : router.push(item.url)
+                }
+                className={`text-xl rounded-none text-[#034401] ${
+                  path.includes(item.url) && "bg-primary skew-x-12 text-secondary"
+                }`}
+                variant={"ghost"}
+              >
+                {item.title}
+                {item?.submenu && <ChevronDownIcon className="w-4 h-4 ml-2" />}
+              </Button>
+
+              {/* Desktop submenu */}
+              {item.submenu && openSubmenu === item.title && (
+                <div className="absolute z-50 w-[300px] bg-white border rounded-md shadow-lg overflow-hidden">
+                  {item.submenu.map((subitem, j) => (
+                    <Link href={subitem.url} key={j}>
+                      <RippleEffect className="p-2 py-4 text-lg flex gap-2 px-4 font-semibold whitespace-nowrap text-[#034401] hover:bg-gray-100">
+                        <Image
+                          src={subitem.img}
+                          alt={subitem.title}
+                          height={1000}
+                          width={1000}
+                          className="h-[30px] w-fit rounded-full border"
+                        />
+                        {subitem.title}
+                      </RippleEffect>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
 
       {/* Mobile Menu */}
       <div className="lg:hidden">
@@ -162,17 +166,28 @@ const NavBar = () => {
                     </Link>
                   ) : (
                     <div>
-                      <Button
-                        onClick={() =>
-                          setOpenSubmenu(
-                            openSubmenu === item.title ? null : item.title
-                          )
-                        }
-                        className="w-full p-4 text-xl text-left font-semibold text-[#034401]  border-b flex items-center justify-between"
-                      >
-                        {item.title}
+                      <Link href={item.url} onClick={() =>
+                        setOpenSubmenu(
+                        openSubmenu === item.title ? null : item.title
+                        )
+                      }>
+                        <RippleEffect className="w-full p-4 text-xl flex items-center font-semibold text-[#034401] border-b">
+                          {item.title}
                         <ChevronDownIcon className="w-4 h-4 ml-2" />
-                      </Button>
+                        </RippleEffect>
+                      </Link>
+                      {/*<Button*/}
+                      {/*    variant={'ghost'}*/}
+                      {/*  onClick={() =>*/}
+                      {/*    setOpenSubmenu(*/}
+                      {/*      openSubmenu === item.title ? null : item.title*/}
+                      {/*    )*/}
+                      {/*  }*/}
+                      {/*  className="w-full p-4 text-xl text-left font-semibold text-[#034401]  border-b flex items-center justify-between"*/}
+                      {/*>*/}
+                      {/*  {item.title}*/}
+                      {/*  <ChevronDownIcon className="w-4 h-4 ml-2" />*/}
+                      {/*</Button>*/}
 
                       {openSubmenu === item.title && (
                         <div className="py-2 pl-4">
@@ -202,15 +217,20 @@ const NavBar = () => {
           </SheetContent>
         </Sheet>
       </div>
+      </div>
+      <div className={'bg-secondary w-full sm:w-fit p-1 sm:mx-4'}>
+
          <Button
+             variant={'outline'}
           onClick={() => {
-            window.location.href = 'http://www.globalnewherballife.com/';
+            window.open('http://www.globalnewherballife.com/', '_blank', 'noopener,noreferrer');
           }}
-          className="w-full p-4 text-xl text-left font-semibold text-[#034401] border-b flex items-center justify-between"
+          className=" p-4 cursor-pointer text-xl text-left font-semibold text-[#034401] border-b flex items-center justify-between"
         >
-          Shop Now 
-          <ChevronDownIcon className="w-4 h-4 ml-2" />
+           <ShoppingBag className={'mr-3'}/>
+          Shop Now
         </Button>
+      </div>
     </div>
   );
 };
