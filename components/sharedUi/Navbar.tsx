@@ -202,6 +202,17 @@ const NavBar = () => {
           </SheetContent>
         </Sheet>
       </div>
+          <Button
+              onClick={() =>
+                setOpenSubmenu(
+                  openSubmenu === item.title ? null : item.title
+                )
+              }
+              className="w-full p-4 text-xl text-left font-semibold text-[#034401]  border-b flex items-center justify-between"
+            >
+              {item.title}
+              <ChevronDownIcon className="w-4 h-4 ml-2" />
+            </Button>
     </div>
   );
 };
