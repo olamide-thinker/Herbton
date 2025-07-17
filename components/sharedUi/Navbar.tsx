@@ -228,7 +228,7 @@ const NavBar = () => {
           className=" p-4 cursor-pointer text-xl text-left font-semibold text-[#034401] border-b flex items-center justify-between"
         >
            <ShoppingBag className={'mr-3'}/>
-          Shop Now
+          Shop Now!
         </Button>
       </div>
     </div>
